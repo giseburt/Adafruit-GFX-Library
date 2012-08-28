@@ -11,6 +11,8 @@ products from Adafruit!
 Written by Limor Fried/Ladyada  for Adafruit Industries.  
 BSD license, check license.txt for more information
 All text above must be included in any redistribution
+
+Rewritten by Rob Giseburt for speed and code size. - Aug 27, 2012
 ****************************************/
 
 #ifndef _ADAFRUIT_GFX_H
