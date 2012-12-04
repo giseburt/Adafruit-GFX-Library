@@ -1,5 +1,11 @@
+#ifdef __AVR__
 #include <avr/io.h>
-#include <avr/pgmspace.h> 
+#include <avr/pgmspace.h>
+#define FONT_TYPE unsigned char PROGMEM
+#else
+#define PROGMEM
+#define FONT_TYPE extern const unsigned char
+#endif
  
 #ifndef FONT5X7_H
 #define FONT5X7_H
@@ -7,7 +13,7 @@
 // standard ascii 5x7 font
 namespace AdafruitGFX {
 
-unsigned char  font[] PROGMEM = {
+FONT_TYPE font[]  = {
         0x00, 0x00, 0x00, 0x00, 0x00,   
 	0x3E, 0x5B, 0x4F, 0x5B, 0x3E, 	
 	0x3E, 0x6B, 0x4F, 0x6B, 0x3E, 	

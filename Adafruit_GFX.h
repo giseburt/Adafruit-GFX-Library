@@ -25,10 +25,18 @@ Rewritten by Rob Giseburt for speed and code size. - Aug 27, 2012
 #include "WProgram.h"
 #endif
 
+#ifdef __AVR__
 #include <avr/pgmspace.h>
+#define FONT_TYPE unsigned char PROGMEM
+#else
+#define FONT_TYPE const unsigned char
+#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+
+#define _BV(x) (1u<<x)
+#endif
 
 namespace AdafruitGFX {
-	extern unsigned char font[] PROGMEM;
+	extern FONT_TYPE font[];
 }
 
 #define swap(a, b) { int16_t t = a; a = b; b = t; }
